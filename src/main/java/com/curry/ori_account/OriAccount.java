@@ -18,6 +18,6 @@ public class OriAccount {
     private Long id;
     private Long userId;
     private String description;
-    private String pintecUseNum;
-    private String divAccountDescription;
+    private String fintechUseNum;
+    private String defDivaccDescription;
 }

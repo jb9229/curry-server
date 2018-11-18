@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @Slf4j
-public class EstimateService {
+public class DivAccountService {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -56,9 +56,9 @@ public class EstimateService {
     }
 
 
-    public DivAccount createEstimate(DivAccountDto.Create estimateDto) {
+    public DivAccount createDivAccount(DivAccountDto.Create divAccDto) {
 
-        DivAccount divAccount = this.modelMapper.map(estimateDto, DivAccount.class);
+        DivAccount divAccount = this.modelMapper.map(divAccDto, DivAccount.class);
 
 
         return this.repository.save(divAccount);

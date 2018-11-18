@@ -11,7 +11,7 @@ public class OriAccountDto {
         private Long id;
 
         private String description;
-        private String pintecUseNum;
-        private String divAccountDescription;
+        private String fintechUseNum;
+        private String defDivaccDescription;
     }
 }

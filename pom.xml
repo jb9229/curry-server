@@ -6,7 +6,7 @@
 
     <groupId>com.jb</groupId>
     <artifactId>curry</artifactId>
-    <version>0.1.1-20181105</version>
+    <version>0.1.1-20181113</version>
     <packaging>jar</packaging>
 
     <properties>

@@ -22,7 +22,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class DivAccountController {
 
     @Autowired
-    private EstimateService service;
+    private DivAccountService service;
 
     @Autowired
     private DivAccountRepository repository;
@@ -39,7 +39,7 @@ public class DivAccountController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        DivAccount divAccount = service.createEstimate(create);
+        DivAccount divAccount = service.createDivAccount(create);
 
 
         return new ResponseEntity<>(modelMapper.map(divAccount, DivAccountDto.Response.class), HttpStatus.OK);
