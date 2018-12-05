@@ -24,6 +24,8 @@
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/curry-0.1.1-20181105" />
       <excludeFolder url="file://$MODULE_DIR$/target/curry-0.1.1-20181113" />
+      <excludeFolder url="file://$MODULE_DIR$/target/curry-0.2.0-20181120" />
+      <excludeFolder url="file://$MODULE_DIR$/target/curry-0.3.0-20181120" />
       <excludeFolder url="file://$MODULE_DIR$/target/isa-0.1.7-20180825" />
       <excludeFolder url="file://$MODULE_DIR$/target/isa-0.1.7-20180826" />
       <excludeFolder url="file://$MODULE_DIR$/target/logs" />

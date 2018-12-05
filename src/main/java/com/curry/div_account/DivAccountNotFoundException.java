@@ -3,10 +3,10 @@ package com.curry.div_account;
 /**
  * Created by jeong on 2016-04-06.
  */
-public class EstimateNotFoundException extends RuntimeException {
+public class DivAccountNotFoundException extends RuntimeException {
     Long id;
 
-    public EstimateNotFoundException(Long id){
+    public DivAccountNotFoundException(Long id){
         this.id     =   id;
     }
 

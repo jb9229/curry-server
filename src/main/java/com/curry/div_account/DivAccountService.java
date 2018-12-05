@@ -26,19 +26,19 @@ public class DivAccountService {
 
 
 
-    public void deleteEstimate(Long id) {
-        repository.delete(getEstimate(id));
+    public void deleteDivAccount(Long id) {
+        repository.delete(getDivAccout(id));
     }
 
 
-    public DivAccount getEstimate(Long id){
+    public DivAccount getDivAccout(Long id){
 
 
         DivAccount divAccount =   repository.findOne(id);
 
         if(divAccount == null)
         {
-            throw new EstimateNotFoundException(id);
+            throw new DivAccountNotFoundException(id);
         }
 
 

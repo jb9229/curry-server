@@ -13,7 +13,7 @@ public class DivAccountDto {
     @Data
     public static class Response{
         private Long id;
-
+        private Long oriAccountId;
         private String description;
         private int balance;
     }

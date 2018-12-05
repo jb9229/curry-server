@@ -33,7 +33,7 @@ public class DivAccountController {
 
 
     @RequestMapping(value="/div_account", method = RequestMethod.POST)
-    public ResponseEntity createDivAccount(@RequestBody @Valid DivAccountDto.Create create, BindingResult result){
+    public ResponseEntity create(@RequestBody @Valid DivAccountDto.Create create, BindingResult result){
 
         if(result.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -46,7 +46,7 @@ public class DivAccountController {
     }
 
     @RequestMapping(value="/div_account/{oriAccountId}", method = GET)
-    public ResponseEntity getDivAccount(@PathVariable  Long oriAccountId){
+    public ResponseEntity getByOriAccont(@PathVariable  Long oriAccountId){
 
         List<DivAccount> divAccountList       =      repository.findByOriAccountId(oriAccountId);
 
@@ -63,7 +63,7 @@ public class DivAccountController {
     public ResponseEntity get(@PathVariable Long id){
 
 
-        DivAccount divAccount =   service.getEstimate(id);
+        DivAccount divAccount =   service.getDivAccout(id);
 
         DivAccountDto.Response response        =   modelMapper.map(divAccount, DivAccountDto.Response.class);
 
@@ -71,9 +71,9 @@ public class DivAccountController {
     }
 
 
-    @RequestMapping(value="/spoon/{id}/", method = RequestMethod.DELETE)
+    @RequestMapping(value="/div_account/{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable Long id){
-        service.deleteEstimate(id);
+        service.deleteDivAccount(id);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -81,12 +81,12 @@ public class DivAccountController {
 
 
 
-    @ExceptionHandler(EstimateNotFoundException.class)
+    @ExceptionHandler(DivAccountNotFoundException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handlerSpoonNotFoundException(EstimateNotFoundException e){
+    public ErrorResponse handlerSpoonNotFoundException(DivAccountNotFoundException e){
         ErrorResponse errorResponse  =   new ErrorResponse();
         errorResponse.setMessage("["+ e.getId()+"]에 해당하는 기부가 없습니다.");
-        errorResponse.setCode("spoon.not.found.exception");
+        errorResponse.setCode("divAccount.not.found.exception");
 
         return errorResponse;
     }
