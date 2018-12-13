@@ -28,7 +28,7 @@ public class TransInfoController {
     private ModelMapper modelMapper;
 
     @RequestMapping(value="/transinfo", method = RequestMethod.POST)
-    public ResponseEntity create(@RequestBody @Valid List<TransInfoDto.Create> createList, BindingResult result){
+    public ResponseEntity saveOrUpdate(@RequestBody @Valid List<TransInfoDto.Create> createList, BindingResult result){
 
         if(result.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -43,10 +43,10 @@ public class TransInfoController {
         return new ResponseEntity<>(modelMapper.map(content, TransInfoDto.Response.class), HttpStatus.OK);
     }
 
-    @RequestMapping(value="/transinfo/{divAccId}", method = RequestMethod.GET)
-    public ResponseEntity get(@PathVariable Long divAccId, @RequestParam String transFromDate, @RequestParam String transToDate){
+    @RequestMapping(value="/transinfo/{divAccIds}", method = RequestMethod.GET)
+    public ResponseEntity get(@PathVariable List<Long> divAccIds, @RequestParam String transFromDate, @RequestParam String transToDate){
 
-        List<TransInfo> transInfoList       =      repository.findByDivAccId(divAccId); //, transFromDate, transToDate
+        List<TransInfo> transInfoList       =      repository.findByDivAccIdInAndTransDateGreaterThanEqualAndTransDateLessThanEqual(divAccIds, transFromDate, transToDate); //, transFromDate, transToDate
 
 
         List<TransInfoDto.Response> content = transInfoList.parallelStream()
@@ -55,5 +55,12 @@ public class TransInfoController {
 
 
         return new ResponseEntity<>(content, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/transinfo", method = RequestMethod.DELETE)
+    public ResponseEntity delete(@RequestBody @Valid List<TransInfoDto.Delete> deleteList){
+        service.delete(deleteList);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -28,4 +28,12 @@ public class TransInfoService {
 
         return this.repository.save(transInfoList);
     }
+
+    public void delete(List<TransInfoDto.Delete> deleteList) {
+        List<TransInfo> transInfoList = deleteList.parallelStream()
+                .map(create -> modelMapper.map(create, TransInfo.class))
+                .collect(Collectors.toList());
+
+        repository.delete(transInfoList);
+    }
 }

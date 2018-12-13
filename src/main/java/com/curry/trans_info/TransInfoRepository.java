@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface TransInfoRepository extends JpaRepository<TransInfo, Long>, JpaSpecificationExecutor<TransInfo> {
 
-    List<TransInfo> findByDivAccId(Long divAccId);
+    List<TransInfo> findByDivAccIdInAndTransDateGreaterThanEqualAndTransDateLessThanEqual(List<Long> divAccId, String transFromDate, String transToDate);
 }

@@ -15,9 +15,18 @@ public class TransInfoDto {
     public static class Response{
         private Long id;
         private Long divAccId;
+        @JsonProperty("tran_date")
         private String transDate;
+        @JsonProperty("tran_time")
         private String transTime;
-        private String transAfterBalance;
+        @JsonProperty("inout_type")
+        private String inoutType;
+        @JsonProperty("tran_amt")
+        private Integer tranAmt;
+        @JsonProperty("after_balance_amt")
+        private Integer transAfterBalance;
+        @JsonProperty("branch_name")
+        private String branchName;
     }
 
     @Data
@@ -34,7 +43,21 @@ public class TransInfoDto {
         @JsonProperty("tran_time")
         private String transTime;
         @NotBlank
+        @JsonProperty("inout_type")
+        private String inoutType;
+        @NotBlank
+        @JsonProperty("tran_amt")
+        private Integer tranAmt;
+        @NotBlank
         @JsonProperty("after_balance_amt")
-        private String transAfterBalance;
+        private Integer transAfterBalance;
+        @NotBlank
+        @JsonProperty("branch_name")
+        private String branchName;
+    }
+
+    @Data
+    public static class Delete {
+        private Long id;
     }
 }

@@ -21,5 +21,8 @@ public class TransInfo {
 
     private String transDate;
     private String transTime;
-    private String transAfterBalance;
+    private String inoutType;
+    private Integer tranAmt;
+    private Integer transAfterBalance;
+    private String branchName;
 }
