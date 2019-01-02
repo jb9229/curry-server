@@ -46,7 +46,7 @@ public class TransInfoController {
     @RequestMapping(value="/transinfo/{divAccIds}", method = RequestMethod.GET)
     public ResponseEntity get(@PathVariable List<Long> divAccIds, @RequestParam String transFromDate, @RequestParam String transToDate){
 
-        List<TransInfo> transInfoList       =      repository.findByDivAccIdInAndTransDateGreaterThanEqualAndTransDateLessThanEqual(divAccIds, transFromDate, transToDate); //, transFromDate, transToDate
+        List<TransInfo> transInfoList       =      repository.findByDivAccIdInAndTransDateGreaterThanEqualAndTransDateLessThanEqualOrderByTransDateDescTransTimeDesc(divAccIds, transFromDate, transToDate); //, transFromDate, transToDate
 
 
         List<TransInfoDto.Response> content = transInfoList.parallelStream()
