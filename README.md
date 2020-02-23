@@ -1,2 +1,2 @@
-# CURRY RESTfull API Server
+# Curry Project, RESTfull API Server
 
